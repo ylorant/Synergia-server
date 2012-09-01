@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5E95EFC9-1635-47F5-81BD-60E0307DFE46}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MMORPGServer</RootNamespace>
+    <AssemblyName>MMORPGServer</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+    <Commandlineparameters>-c config.ini -v 4 -e</Commandlineparameters>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Externalconsole>true</Externalconsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\..\..\usr\lib\mono\gac\MySql.Data\6.5.4.0__c5687fc88969c44d\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Elements\Map.cs" />
+    <Compile Include="Elements\Tileset.cs" />
+    <Compile Include="Elements\Tile.cs" />
+    <Compile Include="CoreComponents\Main.cs" />
+    <Compile Include="CoreComponents\NetConnector.cs" />
+    <Compile Include="CoreComponents\Parser.cs" />
+    <Compile Include="Extensions\Options.cs" />
+    <Compile Include="CoreComponents\HeadServer.cs" />
+    <Compile Include="CoreComponents\Log.cs" />
+    <Compile Include="CoreComponents\MapServer.cs" />
+    <Compile Include="Exceptions\InvalidConfigException.cs" />
+    <Compile Include="Exceptions\MissingConfigParamException.cs" />
+    <Compile Include="CoreComponents\Server.cs" />
+    <Compile Include="Elements\Client.cs" />
+    <Compile Include="Elements\MapServerClient.cs" />
+    <Compile Include="CoreComponents\Events.cs" />
+    <Compile Include="Extensions\Timestamp.cs" />
+    <Compile Include="Elements\Character.cs" />
+    <Compile Include="Exceptions\ErrorException.cs" />
+    <Compile Include="CoreComponents\Database.cs" />
+    <Compile Include="Exceptions\InitializationException.cs" />
+    <Compile Include="CoreComponents\ClientError.cs" />
+    <Compile Include="Elements\Coordinate.cs" />
+    <Compile Include="Exceptions\MapParseException.cs" />
+    <Compile Include="Elements\Chunk.cs" />
+    <Compile Include="CoreComponents\ClientConnector.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Elements\" />
+    <Folder Include="CoreComponents\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+</Project>
